@@ -43,13 +43,23 @@ class ResetPasswordHelper implements ResetPasswordHelperInterface
      */
     private $requestThrottleTime;
 
-    public function __construct(ResetPasswordTokenGenerator $generator, ResetPasswordCleaner $cleaner, ResetPasswordRequestRepositoryInterface $repository, int $resetRequestLifetime, int $requestThrottleTime)
+    public function __construct(
+        ResetPasswordTokenGenerator $generator,
+        ResetPasswordCleaner $cleaner,
+        ResetPasswordRequestRepositoryInterface $repository,
+        int $resetRequestLifetime,
+        int $requestThrottleTime)
     {
         $this->tokenGenerator = $generator;
         $this->resetPasswordCleaner = $cleaner;
         $this->repository = $repository;
         $this->resetRequestLifetime = $resetRequestLifetime;
         $this->requestThrottleTime = $requestThrottleTime;
+    }
+
+    public function setRepository(ResetPasswordRequestRepositoryInterface $repository): void
+    {
+        $this->repository = $repository;
     }
 
     /**

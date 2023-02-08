@@ -9,8 +9,9 @@
 
 namespace SymfonyCasts\Bundle\ResetPassword;
 
-use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordToken;
+use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
+use SymfonyCasts\Bundle\ResetPassword\Persistence\ResetPasswordRequestRepositoryInterface;
 
 /**
  * @author Jesse Rushlow <jr@rushlow.dev>
@@ -33,6 +34,8 @@ interface ResetPasswordHelperInterface
      * @throws ResetPasswordExceptionInterface
      */
     public function generateResetToken(object $user/*, ?int $resetRequestLifetime = null*/): ResetPasswordToken;
+
+    public function setRepository(ResetPasswordRequestRepositoryInterface $repository): void;
 
     /**
      * Validate a reset request and fetch the user from persistence.
