@@ -21,8 +21,11 @@
         "doctrine/annotations": "^1.0"
     },
     "conflict": {
-        "php": ">=8.2",
-        "doctrine/orm": "<2.7"
+        "symfony/symfony": "*"
+    },
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.2.0"
     },
     "autoload": {
         "psr-4": {
